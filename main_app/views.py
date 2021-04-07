@@ -83,6 +83,18 @@ def buscar(request):
 
   hola = request.GET["busq"]
   hola = hola.replace(" ", "+")
-  response = requests.get(f"https://tarea-1-breaking-bad.herokuapp.com/api/characters?name={hola}")
-  response = response.json()
-  return render(request, "main_app/cuadro_busqueda.html",{"resultados": response})
+  offset = 0
+  condicion = True
+  personajes = []
+  
+  while condicion:
+    response = requests.get(f"https://tarea-1-breaking-bad.herokuapp.com/api/characters?name={hola}&offset={offset}")
+    response = response.json()
+    for elemento in response:
+      personajes.append(elemento)
+    offset += 10
+    if len(response) < 10:
+      condicion = False
+      break
+  print(len(personajes))
+  return render(request, "main_app/cuadro_busqueda.html",{"resultados": personajes})
