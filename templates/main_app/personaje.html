@@ -1,0 +1,41 @@
+<!-- base.html -->
+{% extends "base.html" %} {% block content %}
+<h3> {{personaje.name}}</h3>
+<a href ="{% url "home"%}"> Volver a inicio </a>
+<lu>
+
+<li>Id Personaje: {{personaje.char_id}}</li>
+<li>Nombre: {{personaje.name}}</li>
+{% for ocupacion in personaje.occupation%}
+<lu>
+<li>Ocupación: {{ocupacion}}</li>
+</lu>
+{%endfor%}
+<li></li>
+<li>status: {{personaje.status}}</li>
+<li>Sobrenombre: {{personaje.nickname}}</li>
+<li>Actor: {{personaje.portrayed}}</li>
+<li>Categoria: {{personaje.category}}</li>
+<h3>Aparicions Breaking Bad</h3>
+<lu>
+{%for aparicion in personaje.appearance%}
+<li><a href="{% url 'season_bb' aparicion  %}"> Temporada {{aparicion}} </a></li>
+
+</lu>
+{%endfor%}
+<h3>Apariciones Better Call Saul</h3>
+<lu>
+{%for aparicion in personaje.better_call_saul_appearance%}
+<li><a href="{% url 'season_bb' aparicion  %}"> Temporada {{aparicion}} </a></li>
+</lu>
+{%endfor%}
+</lu>
+<h3> CITAS </h3>
+<lu>
+{%for frase in frases%}
+<li> {{frase.quote}}</li>
+</lu>
+{%endfor%}
+<h3>FOTO </h3>
+<img src={{personaje.img}}>
+{% endblock content %}

@@ -1,0 +1,10 @@
+<!-- base.html -->
+{% extends "base.html" %} {% block content %}
+<a href ="{% url "home"%}"> Volver a inicio </a>
+<h3> Resultados </h3>
+<lu>
+{%for personaje in resultados%}
+<li> <a href="{%url 'characters' personaje.name %}"> {{personaje.name}}</a></li>
+</lu>
+{%endfor%}
+{% endblock content %}

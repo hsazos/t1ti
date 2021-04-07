@@ -1,0 +1,22 @@
+<!-- base.html -->
+{% extends "base.html" %} {% block content %}
+<ul>
+  <li> Breaking Bad</li>
+  <ul>
+    {%for temporada in tbb%}
+    <li><a href="{% url 'season_bb' temporada  %}"> Temporada {{temporada}} </a></li>
+    {% endfor %}
+  </ul>
+  <li>Better Call Saul</li>
+    <ul>
+    {%for temporada in tbcs%}
+    <li><a href="{% url 'season_bcs' temporada  %}"> Temporada {{temporada}}</a></li>
+    {% endfor %}
+  </ul>
+</ul>
+
+<form action="/buscar/" method="GET">
+  <input type="text" name="busq">
+  <input type="submit" value="Buscar">
+</form>
+{% endblock content %}

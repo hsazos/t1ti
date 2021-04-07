@@ -1,0 +1,21 @@
+<!-- base.html -->
+{% extends "base.html" %} {% block content %}
+<h3> Episodio {{info.episode_id}} {{info.title}} </h3><a href ="{% url "home"%}"> Volver a inicio </a>
+<lu>
+<li></li>
+<li>Id episodio: {{info.episode_id}}</li>
+<li>Titulo: {{info.title}}</li>
+<li> Temporada: {{info.season}}</li>
+<li> Fecha de estreno: {{info.air_date}}</li>
+<li>Serie: {{info.series}}</li>
+</lu>
+<h1>Personajes</h1>
+<lu>
+{%for personaje in info.characters%}
+<li><a href="{%url 'characters' personaje %}"> {{personaje}}</a></li>
+</lu>
+
+
+
+{%endfor%}
+{% endblock content %}

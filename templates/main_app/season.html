@@ -1,0 +1,10 @@
+<!-- base.html -->
+{% extends "base.html" %} {% block content %}
+<h3> Temporada {{temporada}} </h3>
+<a href ="{% url "home"%}"> Volver a inicio </a>
+<lu>
+{%for episodio in episodios%}
+<li><a href="{% url 'episode_bb' episodio.title %}">{{episodio.title}} </a></li>
+{%endfor%}
+</lu>
+{% endblock content %}
