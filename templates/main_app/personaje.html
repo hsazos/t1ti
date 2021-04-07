@@ -1,5 +1,9 @@
 <!-- base.html -->
 {% extends "base.html" %} {% block content %}
+<form action="/buscar/" method="GET">
+<input type="text" name="busq">
+<input type="submit" value="Buscar">
+</form>
 <h3> {{personaje.name}}</h3>
 <a href ="{% url "home"%}"> Volver a inicio </a>
 <lu>

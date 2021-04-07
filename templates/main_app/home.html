@@ -1,5 +1,9 @@
 <!-- base.html -->
 {% extends "base.html" %} {% block content %}
+<form action="/buscar/" method="GET">
+<input type="text" name="busq">
+<input type="submit" value="Buscar">
+</form>
 <ul>
   <li> Breaking Bad</li>
   <ul>
